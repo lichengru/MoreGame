@@ -8,17 +8,37 @@ namespace gameplay
 {
     public class Game2 : IGame
     {
-        int max = 0;
-        public void Paly()
-        {
-            Console.WriteLine("請輸入範圍:");
-            String input = Console.ReadLine();
-            max = int.Parse(input);
-        }
-
+        
+        int input = -1;
+        int guess = 55;
         public void Setup()
         {
-            Console.WriteLine($"你輸入的最大範圍是{max}");
+            
+            guess = new Random().Next(100);
+            Console.WriteLine("請輸入範圍:");
+            
+        }
+
+        public void Paly()
+        {
+            while (true)  //game loop 
+            {
+                //決定輸入內容
+                string input_str = Console.ReadLine();  //input  string 
+                input = int.Parse(input_str);
+
+                //離開條件 
+                if (input == guess)
+                {
+                    Console.WriteLine("恭喜你答對了!");
+                    break;
+                }
+                //提示
+                Console.WriteLine("猜錯了，再來一次！");
+            }
+
+            Console.WriteLine("PAUSE");
+            Console.ReadKey();
         }
     }
 }
