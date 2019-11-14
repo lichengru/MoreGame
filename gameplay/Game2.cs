@@ -8,15 +8,15 @@ namespace gameplay
 {
     public class Game2 : IGame
     {
-        
+
         int input = -1;
         int guess = 55;
         public void Setup()
         {
-            
-            guess = new Random().Next(100);
-            Console.WriteLine("請輸入範圍:");
-            
+            Console.WriteLine("===============歡迎遊玩猜數字===============");
+            guess = new Random().Next(5);
+            Console.WriteLine("請輸入數字(0~100):");
+
         }
 
         public void Paly()
@@ -37,8 +37,33 @@ namespace gameplay
                 Console.WriteLine("猜錯了，再來一次！");
             }
 
-            Console.WriteLine("PAUSE");
-            Console.ReadKey();
+            Console.WriteLine("是否在玩一次? <Y/N>");
+            Exit();
+
+
+        }
+        public void Exit()
+        {
+            try
+            {
+                string input = Console.ReadLine();
+                string x = input;
+                if (x == "Y" || x == "y")
+                {
+                    Setup();
+                    Paly();
+                }
+                else if (x == "N" || x == "n")
+                {
+                    Console.WriteLine("================感謝你的遊玩================");                  
+                }
+                
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("輸入錯誤，請重新輸入");
+                Exit();
+            }
         }
     }
 }

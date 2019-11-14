@@ -26,6 +26,7 @@ namespace gameplay
             }
             game.Setup();
             game.Paly();
+            game.Exit();
             Console.ReadKey();
 
         }

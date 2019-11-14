@@ -10,5 +10,6 @@ namespace gameplay
     {
         void Setup();
         void Paly();
+        void Exit();
     }
 }
